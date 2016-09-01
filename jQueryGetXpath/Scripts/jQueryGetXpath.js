@@ -8,13 +8,17 @@
         // 获取Xpath
         var $this = options.xSelector;
         var tag = $this.get(0).tagName.toLowerCase();
+        console.log(tag + ":" + $this.index());
+        if (tag === "body") {
+            return "//body" + options.xpath;
+        }
         if (!!options.selfIdMode) {
-            if ($this.attr("id")) {
+            if ($this.attr("id") && $(tag + "[id=\"" + $this.attr("id") + "\"]").length === 1) {
                 options.xpath = ("/" + tag + "[@id=\"" + $this.attr("id") + "\"]") + options.xpath;
                 return "/" + options.xpath;
             }
             else if ($this.attr("class")) {
-                if ($("." + $this.attr("class")).length == 1) {
+                if ($(tag + "[class=\"" + $this.attr("class") + "\"]").length === 1) {
                     options.xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + options.xpath;
                     return "/" + options.xpath;
                 } else {
@@ -35,7 +39,7 @@
             }
         }
         else {
-            if ($this.attr("id")) {
+            if ($this.attr("id") && $(tag + "[id=\"" + $this.attr("id") + "\"]").length === 1) {
                 options.xpath = ("/" + tag + "[@id=\"" + $this.attr("id") + "\"]") + options.xpath;
                 if ($this.parent().length) {
                     options.xSelector = $this.parent();
@@ -44,7 +48,7 @@
                 return "/" + options.xpath;
             }
             else if ($this.attr("class")) {
-                if ($("." + $this.attr("class")).length == 1) {
+                if ($(tag + "[class=\"" + $this.attr("class") + "\"]").length === 1) {
                     options.xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + options.xpath;
                     return "/" + options.xpath;
                 } else {
