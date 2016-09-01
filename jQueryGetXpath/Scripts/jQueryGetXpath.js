@@ -4,68 +4,68 @@
 
         };
 
-    var getXpath = function (options) {
+    var getXpath = function (xpath, xSelector, options) {
         // 获取Xpath
-        var $this = options.xSelector;
+        var $this = xSelector;
         var tag = $this.get(0).tagName.toLowerCase();
-        console.log(tag + ":" + $this.index());
+        //console.log(tag + ":" + $this.index());
         if (tag === "body") {
-            return "//body" + options.xpath;
+            return "//body" + xpath;
         }
         if (!!options.selfIdMode) {
             if ($this.attr("id") && $(tag + "[id=\"" + $this.attr("id") + "\"]").length === 1) {
-                options.xpath = ("/" + tag + "[@id=\"" + $this.attr("id") + "\"]") + options.xpath;
-                return "/" + options.xpath;
+                xpath = ("/" + tag + "[@id=\"" + $this.attr("id") + "\"]") + xpath;
+                return "/" + xpath;
             }
             else if ($this.attr("class")) {
                 if ($(tag + "[class=\"" + $this.attr("class") + "\"]").length === 1) {
-                    options.xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + options.xpath;
-                    return "/" + options.xpath;
+                    xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + xpath;
+                    return "/" + xpath;
                 } else {
-                    options.xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + options.xpath;
+                    xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + "[" + ($this.index() + 1) + "]" + xpath;
                     if ($this.parent().length) {
-                        options.xSelector = $this.parent();
-                        return getXpath(options);
+                        xSelector = $this.parent();
+                        return getXpath(xpath, xSelector, options);
                     }
-                    return "/" + options.xpath;
+                    return "/" + xpath;
                 }
             } else {
-                options.xpath = ("/" + tag) + options.xpath;
+                xpath = ("/" + tag) + "[" + ($this.index() + 1) + "]" + xpath;
                 if ($this.parent().length) {
-                    options.xSelector = $this.parent();
-                    return getXpath(options);
+                    xSelector = $this.parent();
+                    return getXpath(xpath, xSelector, options);
                 }
-                return "/" + options.xpath;
+                return "/" + xpath;
             }
         }
         else {
             if ($this.attr("id") && $(tag + "[id=\"" + $this.attr("id") + "\"]").length === 1) {
-                options.xpath = ("/" + tag + "[@id=\"" + $this.attr("id") + "\"]") + options.xpath;
+                xpath = ("/" + tag + "[@id=\"" + $this.attr("id") + "\"]") + xpath;
                 if ($this.parent().length) {
-                    options.xSelector = $this.parent();
-                    return getXpath(options);
+                    xSelector = $this.parent();
+                    return getXpath(xpath, xSelector, options);
                 }
-                return "/" + options.xpath;
+                return "/" + xpath;
             }
             else if ($this.attr("class")) {
                 if ($(tag + "[class=\"" + $this.attr("class") + "\"]").length === 1) {
-                    options.xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + options.xpath;
-                    return "/" + options.xpath;
+                    xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + xpath;
+                    return "/" + xpath;
                 } else {
-                    options.xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + options.xpath;
+                    xpath = ("/" + tag + "[@class=\"" + $this.attr("class") + "\"]") + "[" + ($this.index() + 1) + "]" + xpath;
                     if ($this.parent().length) {
-                        options.xSelector = $this.parent();
-                        return getXpath(options);
+                        xSelector = $this.parent();
+                        return getXpath(xpath, xSelector, options);
                     }
-                    return "/" + options.xpath;
+                    return "/" + xpath;
                 }
             } else {
-                options.xpath = ("/" + tag) + options.xpath;
+                xpath = ("/" + tag) + "[" + ($this.index() + 1) + "]" + xpath;
                 if ($this.parent().length) {
-                    options.xSelector = $this.parent();
-                    return getXpath(options);
+                    xSelector = $this.parent();
+                    return getXpath(xpath, xSelector, options);
                 }
-                return "/" + options.xpath;
+                return "/" + xpath;
             }
         }
     }
@@ -87,7 +87,8 @@
             });
         },
         getXpath: function (options) {
-            return getXpath(options);
+            var $this = $(this);
+            return getXpath("", $this, options);
         },
         getSelector: function (options) {
             // good

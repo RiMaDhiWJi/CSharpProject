@@ -359,7 +359,8 @@
             $('body *').click(function () {
                 //console.log($(this));
                 //$(this).jQueryGetXpath();
-                console.log($(this).jQueryGetXpath("getXpath", { xpath: "", selfIdMode: false, xSelector: $(this) }));
+                console.log($(this).jQueryGetXpath("getXpath", { selfIdMode: false }));
+                console.log($(this).jQueryGetXpath("getXpath", { selfIdMode: true }));
                 return false;
             });
         });
