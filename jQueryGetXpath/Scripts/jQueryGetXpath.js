@@ -106,8 +106,6 @@
         },
         getSelector: function (options) {
             // good
-
-
         },
         getXpathIndex: function() {
             var $this = $(this);
@@ -121,50 +119,28 @@
                     return i;
                 }
             }
-
+            return 1;
         }
     };
 
     $.fn[pluginName] = function () {
         // 获取传入的方法，切勿用function(method){}来实现，否则会毁掉一切
-
-
         // arguments对象用法参考：http://www.w3school.com.cn/js/pro_js_functions_arguments_object.asp
-
-
         var method = arguments[0];
         // 方法调用
-
-
         if (methods[method]) {
-
             // 如果存在，获取方法名
-
-
             method = methods[method];
-
             // 我们的方法是作为参数传入的，把它从参数列表中删除，因为调用方法时仅需JSON格式参数，并不需要它
-
-
             arguments = Array.prototype.slice.call(arguments, 1);
-
         } else if (typeof method === 'object' || !method) {
-
             // 如果没有传入方法名，则默认调用init方法，参数为arguments
-
-
             method = methods.init;
         } else {
-
             // 否则提示错误
-
-
             $.error('Method' + method + 'does not exist on jQuery.tooltip');
         }
-
         // 用apply方法来调用方法，并传入参数 
-
-
         return method.apply(this, arguments);
     };
 
