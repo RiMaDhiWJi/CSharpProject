@@ -57,8 +57,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GoogleChromeExt\chrome-query\devtools.html" />
+    <Content Include="GoogleChromeExt\chrome-query\devtools.js" />
+    <Content Include="GoogleChromeExt\jXpath\background.html" />
+    <Content Include="GoogleChromeExt\jXpath\icon-on.png" />
+    <Content Include="GoogleChromeExt\jXpath\icon128.png" />
+    <Content Include="GoogleChromeExt\jXpath\icon16.png" />
+    <Content Include="GoogleChromeExt\jXpath\icon48.png" />
+    <Content Include="GoogleChromeExt\jXpath\js\background.js" />
+    <Content Include="GoogleChromeExt\jXpath\icon-off.png" />
+    <Content Include="GoogleChromeExt\jXpath\js\jquery-3.1.0.min.js" />
+    <Content Include="GoogleChromeExt\jXpath\js\jQueryGetXpath.js" />
+    <Content Include="GoogleChromeExt\jXpath\js\run.js" />
+    <Content Include="GoogleChromeExt\jXpath\options.html" />
+    <Content Include="GoogleChromeExt\jXpath\options.js" />
+    <Content Include="GoogleChromeExt\jXpath\popup.html" />
+    <Content Include="GoogleChromeExt\jXpath\popup.js" />
     <Content Include="Scripts\jQueryGetXpath.js" />
     <Content Include="WebFormTest.aspx" />
+    <Content Include="GoogleChromeExt\jXpath\manifest.json" />
+    <Content Include="GoogleChromeExt\chrome-query\manifest.json" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
@@ -88,6 +106,7 @@
       <DependentUpon>WebFormTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

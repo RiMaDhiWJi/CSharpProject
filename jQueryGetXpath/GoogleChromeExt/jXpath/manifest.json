@@ -1,0 +1,35 @@
+﻿{
+    "manifest_version": 2, //固定的
+    "name": "jXpath", //插件名称
+    "version": "1.0", //插件使用的版本
+    "description": "Get xpath by jQuery", //插件的描述
+    "browser_action": { //插件加载后生成图标
+        "default_icon": "icon-off.png", //图标的图片
+        "name": "jXpath",
+        "default_title": "jXpath.", //鼠标移到图标显示的文字
+        "default_popup": "popup.html" //单击图标执行的文件
+        //chrome.browserAction.onClicked
+    },
+    "icons": {
+        "128": "icon128.png",
+        "16": "icon16.png",
+        "48": "icon48.png"
+    },
+    "background": { //background script即插件运行的环境
+        //"page": "background.html"
+        //"scripts": [ "js/jquery-3.1.0.min.js", "js/jQueryGetXpath.js", "js/background.js" ] //数组.chrome会在扩展启动时自动创建一个包含所有指定脚本的页面
+        "scripts": [ "js/background.js" ]
+    },
+    "content_scripts": [
+        { //对页面内容进行操作的脚本
+            "matches": [ "http://*/*", "https://*/*" ], //满足什么条件执行该插件
+            "js": [ "js/jquery-3.1.0.min.js", "js/jQueryGetXpath.js", "js/run.js" ]
+        }
+    ],
+    /* in manifest.json */
+    "permissions": [
+        "tabs",
+        "http://*/*"
+    ],
+    "options_page": "options.html"
+}
