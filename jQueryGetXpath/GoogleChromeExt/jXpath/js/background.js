@@ -8,12 +8,12 @@
     var disablejXpath = (function () {
         options.enable = false;
         chrome.browserAction.setIcon({ path: "icon-off.png" });
-        chrome.browserAction.setTitle({ title: "Cache Killer disabled" });
+        chrome.browserAction.setTitle({ title: "jXpath disabled" });
     });
     var enablejXpath = (function () {
         options.enable = true;
         chrome.browserAction.setIcon({ path: "icon-on.png" });
-        chrome.browserAction.setTitle({ title: "Cache Killer enabled" });
+        chrome.browserAction.setTitle({ title: "jXpath enabled" });
     });
     var sendMsgToAllWindow = function () {
         chrome.tabs.getAllInWindow(1, function (tabs) {
@@ -52,6 +52,9 @@
             sendResponse(options);
             sendMsgToAllWindow();
         }
-
+        else if (request.method === "stopgetting") {
+            disablejXpath();
+            sendResponse(options);
+        }
     });
 })();

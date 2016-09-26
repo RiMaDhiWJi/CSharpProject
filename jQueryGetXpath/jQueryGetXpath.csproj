@@ -67,6 +67,7 @@
     <Content Include="GoogleChromeExt\jXpath\js\background.js" />
     <Content Include="GoogleChromeExt\jXpath\icon-off.png" />
     <Content Include="GoogleChromeExt\jXpath\js\jquery-3.1.0.min.js" />
+    <Content Include="GoogleChromeExt\jXpath\js\jquery-ui.min.js" />
     <Content Include="GoogleChromeExt\jXpath\js\jQueryGetXpath.js" />
     <Content Include="GoogleChromeExt\jXpath\js\run.js" />
     <Content Include="GoogleChromeExt\jXpath\options.html" />

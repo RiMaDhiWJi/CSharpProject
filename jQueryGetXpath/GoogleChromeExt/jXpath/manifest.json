@@ -2,7 +2,7 @@
     "manifest_version": 2, //固定的
     "name": "jXpath", //插件名称
     "version": "1.0", //插件使用的版本
-    "description": "Get xpath by jQuery", //插件的描述
+    "description": "Get element's xpath by jQuery.", //插件的描述
     "browser_action": { //插件加载后生成图标
         "default_icon": "icon-off.png", //图标的图片
         "name": "jXpath",
@@ -23,7 +23,7 @@
     "content_scripts": [
         { //对页面内容进行操作的脚本
             "matches": [ "http://*/*", "https://*/*" ], //满足什么条件执行该插件
-            "js": [ "js/jquery-3.1.0.min.js", "js/jQueryGetXpath.js", "js/run.js" ]
+            "js": [ "js/jquery-3.1.0.min.js", "js/jQueryGetXpath.js","js/jquery-ui.min.js", "js/run.js" ]
         }
     ],
     /* in manifest.json */

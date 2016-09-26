@@ -1,5 +1,6 @@
 ; (function ($, window, document, undefined) {
     var pluginName = "jQueryGetXpath";  //自定义一个插件名称
+
     var getXpath = function (xpath, xSelector, options) {
         // 获取Xpath
         var $this = xSelector;
@@ -45,6 +46,7 @@
         }
         return xpath;
     }
+
     var methods = {
         init: function (options) {
             // 在每个元素上执行方法
